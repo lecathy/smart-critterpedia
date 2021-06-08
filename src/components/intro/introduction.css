@@ -6,3 +6,38 @@
     width: 25%;
     padding: 10px;
 }
+
+.blathers-img {
+    width: 60%;
+    margin-left: 20%;
+}
+
+.intro-slogan {
+    font-size: 35pt;
+    margin-right: 20%;
+    line-height: 45pt;
+    color: #fff;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    margin-bottom: 0;
+    margin-top: 5%;
+}
+
+.intro-slogan-second {
+    font-size: 35pt;
+    margin-right: 20%;
+    line-height: 45pt;
+    color: #528D87;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    margin-bottom: 10pt;
+}
+
+.site-description {
+    font-size: 12pt;
+    margin-right: 20%;
+    line-height: 15pt;
+    color: #528D87;
+    font-family: 'Montserrat';
+    font-weight: 300;
+}
