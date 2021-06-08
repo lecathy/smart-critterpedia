@@ -73,3 +73,9 @@
     width: 100%;
     padding: 0 10%;
 }
+
+.dropdown-label {
+    font-family: 'Montserrat';
+    font-size: 12pt;
+    padding: 2px;
+}

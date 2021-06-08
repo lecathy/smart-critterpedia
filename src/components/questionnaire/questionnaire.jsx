@@ -2,22 +2,31 @@ import React, { useState } from 'react';
 import NorthHemi from '../../assets/north-hemi.svg';
 import SouthHemi from '../../assets/south-hemi.svg';
 import "../questionnaire/questionnaire.css";
-import {Row, Col} from 'antd';
+import { Row, Col, Dropdown, Menu, Button } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
+
+const months = ["January", "February", "March", "April", "May", "June", "July", "August",
+                "September", "October", "November", "December", "Any"];
 
 export default function Questionnaire() {
     const [questionNumber, setQuestionNumber] = useState(0);
     const [hemisphere, setHemisphere] = useState("default");
-    return(
-        <div className="questionnaire-container">
-            {
-                (questionNumber == 0) && askHemisphere() 
-            }
-            {
-                (questionNumber == 1) && askDateAndTime()
-            }
-        </div>
-    );
+    const [month, setMonth] = useState('Pick a month');
+
+    const monthOptions = (
+        <Menu>
+            {months.map(month => {
+                return(
+                    <Menu.Item>
+                        <a onClick={() => setMonth(month)}>
+                            {month}
+                        </a>
+                    </Menu.Item>
+                );
+            })}
+        </Menu>
+      );
 
     function askHemisphere(){
         return (
@@ -50,6 +59,31 @@ export default function Questionnaire() {
         return (
             <div className="question-box">
                 <h3 className="question">What's the date and time?</h3>
+                <Row style={{width: '40%', margin: '0 35% 20px 35%'}}>
+                    <Col span={18} push={6}>
+                        <Dropdown overlay={monthOptions}>
+                            <Button>
+                                {month} <DownOutlined />
+                            </Button>
+                        </Dropdown>
+                    </Col>
+                    <Col span={6} pull={18} className="dropdown-label">
+                        Date:
+                    </Col>
+                </Row>
+                <Row style={{width: '40%', margin: '0 35%'}}>
+                    <Col span={18} push={6}>
+                        <Dropdown overlay={monthOptions}>
+                            <Button>
+                                Pick a time <DownOutlined />
+                            </Button>
+                        </Dropdown>
+                    </Col>
+                    <Col span={6} pull={18} className="dropdown-label">
+                        Time:
+                    </Col>
+                </Row>
+                <div onClick={() => setQuestionNumber(questionNumber + 1)} className="submit">Submit</div>
             </div>
         )
     }
@@ -59,4 +93,12 @@ export default function Questionnaire() {
         else if(hemisphereSelected == option) return "selected-option";
         else return "unselected-option";
     }
+
+    return(
+        <div className="questionnaire-container">
+            {
+                (questionNumber == 0) ? askHemisphere() : askDateAndTime()
+            }
+        </div>
+    );
 }
