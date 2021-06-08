@@ -14,10 +14,7 @@ export default function Questionnaire() {
                 (questionNumber == 0) && askHemisphere() 
             }
             {
-                (questionNumber == 1) && askMonth()
-            }
-            {
-                (questionNumber == 2) && askTime()
+                (questionNumber == 1) && askDateAndTime()
             }
         </div>
     );
@@ -49,18 +46,10 @@ export default function Questionnaire() {
         );
     }
 
-    function askMonth(){
+    function askDateAndTime(){
         return (
             <div className="question-box">
-                <h3 className="question">What month are we in?</h3>
-            </div>
-        )
-    }
-    
-    function askTime(){
-        return (
-            <div className="question-box">
-                <h3 className="question">What time is it?</h3>
+                <h3 className="question">What's the date and time?</h3>
             </div>
         )
     }

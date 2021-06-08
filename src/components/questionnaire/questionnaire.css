@@ -32,6 +32,7 @@
     border: 2px solid #8DECF2;
     background-color: #DEF4F2;
     border-radius: 25px;
+    margin: 0 20%;
     cursor: pointer;
 }
 
@@ -39,6 +40,7 @@
     border: 2px solid #E1E1E1;
     background-color: #E1E1E1;
     border-radius: 25px;
+    margin: 0 20%;
     cursor: pointer;
 }
 
