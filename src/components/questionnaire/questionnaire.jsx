@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import NorthHemi from '../../assets/north-hemi.svg';
 import SouthHemi from '../../assets/south-hemi.svg';
 import "../questionnaire/questionnaire.css";
-import { Row, Col, Dropdown, Menu, Button } from 'antd';
+import { Row, Col, Dropdown, Menu, Button, TimePicker } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 
@@ -13,6 +13,7 @@ export default function Questionnaire() {
     const [questionNumber, setQuestionNumber] = useState(0);
     const [hemisphere, setHemisphere] = useState("default");
     const [month, setMonth] = useState('Pick a month');
+    const [time, setTime] = useState('default time');
 
     const monthOptions = (
         <Menu>
@@ -73,11 +74,7 @@ export default function Questionnaire() {
                 </Row>
                 <Row style={{width: '40%', margin: '0 35%'}}>
                     <Col span={18} push={6}>
-                        <Dropdown overlay={monthOptions}>
-                            <Button>
-                                Pick a time <DownOutlined />
-                            </Button>
-                        </Dropdown>
+                            <TimePicker use12Hours format="h:mm a"/>
                     </Col>
                     <Col span={6} pull={18} className="dropdown-label">
                         Time:

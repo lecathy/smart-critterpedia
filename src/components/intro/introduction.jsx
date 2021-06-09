@@ -1,4 +1,4 @@
-import Logo from '../../assets/critterpedia-logo.png';
+import Logo from '../../assets/critterpedia-logo.svg';
 import Blathers from '../../assets/blathers.svg';
 import '../intro/introduction.css';
 import {Row, Col} from 'antd';
